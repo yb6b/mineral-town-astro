@@ -22,7 +22,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install
-      - run: pnpm run build
+      - run: pnpm run build --base=mineral-town-astro
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
