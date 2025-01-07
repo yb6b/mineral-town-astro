@@ -30,4 +30,4 @@ layout: "@/layouts/mineral-town/article.astro"
 
 ## 地窖
 
-![果树园2](果树园2.png)![果树园3](_果树园3.png)
+![果树园2](_果树园2.png)![果树园3](_果树园3.png)
