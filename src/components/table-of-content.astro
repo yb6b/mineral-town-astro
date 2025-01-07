@@ -1,0 +1,59 @@
+---
+import type { MarkdownHeading } from "astro"
+
+interface Props {
+  headings: MarkdownHeading[]
+  counts: number[]
+  depth?: number
+}
+const { headings, counts, depth = 2 } = Astro.props
+const splitedHeading: MarkdownHeading[][] = []
+
+const filterHeadings = headings.filter((h) => h.depth <= depth)
+
+let lastCount = 0
+for (const c of counts) {
+  splitedHeading.push(filterHeadings.slice(lastCount, lastCount + c))
+  lastCount += c
+}
+---
+
+<div class="event_list note">
+  {
+    splitedHeading.map((h) => (
+      <ul>
+        {h.map((heading) => (
+          <li>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    ))
+  }
+</div>
+<br />
+<hr />
+
+<style>
+  @media only screen and (min-width: 801px) {
+    .event_list {
+      font-size: 0.9em;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .event_list {
+      font-size: 0.9em;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+</style>

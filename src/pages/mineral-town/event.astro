@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/mineral-town/mobile.astro"
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "活动事件",
+    flex: false,
+    items: [
+      {
+        name: "年度日历",
+        href: "event/calendar",
+      },
+      {
+        name: "节日事件",
+        href: "event/festival",
+      },
+      {
+        name: "居民事件",
+        href: "event/resident",
+      },
+      {
+        name: "爱情事件",
+        href: "event/love",
+      },
+      {
+        name: "情敌事件",
+        href: "event/love-enemy",
+      },
+      {
+        name: "婚后事件",
+        href: "event/after-marriage",
+      },
+      {
+        name: "隐藏事件",
+        href: "event/hide",
+      },
+      {
+        name: "女孩版特有事件",
+        href: "event/girl-version",
+      },
+    ],
+  },
+]
+---
+
+<Layout {data} />

@@ -1,0 +1,104 @@
+---
+import WikiLayout from "../wiki-layout.astro"
+
+import { getMobileFooterArray } from "../mobile-footer"
+
+import type { AsideFooter } from "../types"
+import { addPrefixToHref } from "../types"
+
+interface Props {
+  title?: string
+  isArticle?: boolean
+}
+const { title, isArticle } = Astro.props
+
+const aside: AsideFooter["aside"] = [
+  {
+    name: "游戏介绍",
+    items: [
+      { name: "牧场物语", href: "introduction/harvest-moon" },
+      { name: "矿石镇的伙伴们", href: "introduction/mineral-town" },
+      { name: "基本操作", href: "guide/basic" },
+      { name: "SL大法", href: "guide/sl" },
+      { name: "牧场禁忌", href: "guide/taboo" },
+      { name: "体力疲劳", href: "guide/physical" },
+    ],
+  },
+  {
+    name: "牧场生活",
+    items: [
+      { name: "农作", href: "life/farm/crop" },
+      { name: "动物", href: "life/pasture/animal" },
+      { name: "挖矿", href: "life/mining/method" },
+      { name: "钓鱼", href: "life/fish/fish" },
+      { name: "料理", href: "life/cooking/cooking" },
+      { name: "增筑", href: "place/expansion" },
+    ],
+  },
+  {
+    name: "村庄居民",
+    items: [
+      { name: "场所介绍", href: "town" },
+      { name: "村民介绍", href: "resident" },
+      { name: "好感度", href: "event/favorability" },
+    ],
+  },
+  {
+    name: "活动事件",
+    items: [
+      { name: "年度日历", href: "event/calendar" },
+      { name: "节日事件", href: "event/festival" },
+      { name: "居民事件", href: "event/resident" },
+      { name: "爱情事件", href: "event/love" },
+      { name: "情敌事件", href: "event/love-enemy" },
+      { name: "婚后事件", href: "event/after-marriage" },
+      { name: "隐藏事件", href: "event/hide" },
+      { name: "女孩版特有事件", href: "event/girl-version" },
+    ],
+  },
+  {
+    name: "道具说明",
+    items: [
+      { name: "农作", href: "life/farm/prop" },
+      { name: "动物", href: "life/pasture/prop" },
+      { name: "山货", href: "life/farm/mountain" },
+      { name: "戒指", href: "life/other/ring" },
+      { name: "电话购物", href: "life/other/phone" },
+      { name: "其他道具", href: "life/other/other" },
+      { name: "女神秘宝", href: "life/other/goddess" },
+      { name: "河童秘宝", href: "life/other/kappa" },
+      { name: "真实秘宝", href: "life/other/real" },
+      { name: "力之果实", href: "life/other/power" },
+      { name: "不可思议的果实", href: "life/other/incredible" },
+      { name: "首饰与化妆品", href: "life/other/jewelry" },
+      { name: "班最喜欢的东西", href: "life/other/ban-like" },
+    ],
+  },
+  {
+    name: "其他资料",
+    items: [
+      { name: "女神猜数字游戏", href: "event/guess-number" },
+      { name: "霍安猜苹果", href: "event/girl-version.html#霍安的猜苹果游戏" },
+      { name: "小矮人游戏", href: "place/game" },
+      { name: "联机", href: "other/online" },
+      { name: "换季bug", href: "other/season-bug" },
+      { name: "无限体力bug", href: "other/physical-bug" },
+      { name: "金手指", href: "other/cheat-code" },
+    ],
+  },
+]
+addPrefixToHref(aside, "/mineral-town/")
+
+const footer = getMobileFooterArray("mineral-town")
+---
+
+<WikiLayout
+  name="矿石镇的攻略百科"
+  slogan="真的还有人在玩这个GBA时代的游戏吗？"
+  {aside}
+  {footer}
+  title={title ? title + " · 矿石镇的伙伴们" : undefined}
+  {isArticle}
+>
+  <slot />
+</WikiLayout>

@@ -1,0 +1,82 @@
+---
+import cssPath from "@/styles/wiki.css?url"
+import mCssPath from "@/styles/wiki_m.css?url"
+import saikaiCssPath from "@/styles/saikai.css?url"
+import iframeCssPath from "@/styles/iframe.css?url"
+
+import BaseLayout from "./base-layout.astro"
+import wikiIcon from "@/assets/icons/wiki.svg"
+import type { AsideFooter } from "./types"
+
+import { Image } from "astro:assets"
+
+interface Props extends AsideFooter {
+  name?: string
+  title?: string
+  slogan: string
+  isArticle?: boolean
+}
+
+const thisYear = new Date().getFullYear()
+
+const { name = "矿石镇的攻略百科", slogan, aside, footer, title, isArticle } = Astro.props
+const otherCssPath = [saikaiCssPath]
+if(isArticle) {
+  otherCssPath.push(iframeCssPath)
+}
+
+---
+
+<BaseLayout {cssPath} {mCssPath} {otherCssPath} {title}>
+  <div id="wiki">
+    <div class="head">
+      <div class="logo">
+        <Image src={wikiIcon} alt="wiki icon" />
+      </div>
+      <div class="title">
+        <h1 class="name">{name}</h1>
+        <h2 class="slogan">{slogan}</h2>
+      </div>
+    </div>
+    <div class="main">
+      <div class="aside">
+        {
+          aside.map((item) => (
+            <Fragment>
+              <div class="aside_sub">{item.name}</div>
+              <div class="aside_title">
+                {item.items.map((subitem) => (
+                  <a href={subitem.href} class="aside_link" target="_self">
+                    {subitem.name}
+                  </a>
+                ))}
+              </div>
+            </Fragment>
+          ))
+        }
+        <div class="copy">
+          <p class="copy">
+            <a href="https://wiki.mineraltown.net/" class="copy">矿石镇的攻略百科</a> © {thisYear}
+          </p>
+        </div>
+      </div>
+
+      <div class="frame">
+        <slot />
+      </div>
+
+      <div class="footer">
+        {
+          footer.map((item) => (
+            <a href={item.href} target="_self" class="footer_menu">
+              <div class="menu_logo">
+                <img src={item.icon} />
+              </div>
+              <div class="menu_name">{item.name}</div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

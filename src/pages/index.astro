@@ -1,11 +1,105 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/main-layout.astro"
+import logo from "@/assets/icons/logo.svg"
+import mineraltownImage from "@/assets/images/mineraltown.jpg"
+import saikaiImage from "@/assets/images/saikai.jpg"
+import twotownsImage from "@/assets/images/twotowns.jpg"
+import trioImage from "@/assets/images/trio.jpg"
+import oliveImage from "@/assets/images/olive.jpg"
+import welcomeImage from "@/assets/images/welcome.jpg"
+import bazaarImage from "@/assets/images/bazaar.jpg"
+import newOneImage from "@/assets/images/new-1.jpg"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainMenu from "@/components/main-menu.astro"
+
+import { Image } from "astro:assets"
 ---
 
 <Layout>
-	<Welcome />
+  <div id="app">
+    <div class="main">
+      <a href="/mineral-town/" title="矿石镇的伙伴们">
+        <div class="main_left">
+          <Image src={mineraltownImage} alt="矿石镇的伙伴们" />
+        </div>
+      </a>
+      <div class="main_right">
+        <a href="/saikai/" title="重聚矿石镇">
+          <div class="side_view">
+            <Image src={saikaiImage} alt="重聚矿石镇" />
+          </div>
+        </a>
+        <a href="/twotowns/" title="双子村">
+          <div class="side_view">
+            <Image src={twotownsImage} alt="双子村" />
+          </div>
+        </a>
+        <a href="/trio/" title="三个村庄的珍贵朋友">
+          <div class="side_view">
+            <Image src={trioImage} alt="三个村庄的珍贵朋友" />
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="side_box">
+        <a href="/olive/" title="橄榄镇与希望的大地">
+          <div class="side_view box_shadow">
+            <Image src={oliveImage} style="filter: grayscale(70%);" alt="橄榄镇与希望的大地" />
+          </div>
+        </a>
+        <a href="/welcome/" title="Welcome! 美丽人生">
+          <div class="side_view box_shadow">
+            <Image src={welcomeImage} style="filter: grayscale(70%);" alt="Welcome! 美丽人生" />
+          </div>
+        </a>
+        <a href="/bazaar/" title="欢迎来到! 风之集市">
+          <div class="side_view box_shadow">
+            <Image src={bazaarImage} style="filter: grayscale(70%);" alt="欢迎来到! 风之集市" />
+          </div>
+        </a>
+        <a target="_blank" href="https://youtu.be/BGwFRAkG8yM?t=888">
+          <div class="side_view box_shadow" style="position: relative;">
+            <Image src={newOneImage} alt="新作公布" />
+            <div class="new-1">
+              <p>新作公布了！</p>
+              <p>
+                但是除了知道有新作以外<br />啥都没说。
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="fill"></div>
+  </div>
 </Layout>
+<style>
+  .new-1 {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .new-1 p:first-child {
+    padding-left: 0.5em;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #333;
+  }
+  .new-1 p:nth-child(2) {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #333;
+  }
+</style>

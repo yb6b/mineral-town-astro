@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/mineral-town/mobile.astro"
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "游戏介绍",
+    items: [
+      {
+        href: "introduction/harvest-moon",
+        name: "牧场物语",
+      },
+      {
+        href: "introduction/mineral-town",
+        name: "矿石镇的伙伴们",
+      },
+      {
+        href: "guide/basic",
+        name: "基本操作",
+      },
+      {
+        href: "guide/sl",
+        name: "SL大法",
+      },
+      {
+        href: "guide/taboo",
+        name: "牧场禁忌",
+      },
+      {
+        href: "guide/physical",
+        name: "体力疲劳",
+      },
+    ],
+  },
+  {
+    name: "牧场生活",
+    items: [
+      {
+        href: "life/farm/crop",
+        name: "农作",
+      },
+      {
+        href: "life/pasture/animal",
+        name: "动物",
+      },
+      {
+        href: "life/mining/method",
+        name: "挖矿",
+      },
+      {
+        href: "life/fish/fish",
+        name: "钓鱼",
+      },
+      {
+        href: "life/cooking/cooking",
+        name: "料理",
+      },
+      {
+        href: "place/expansion",
+        name: "增筑",
+      },
+    ],
+  },
+]
+---
+
+<Layout {data} />

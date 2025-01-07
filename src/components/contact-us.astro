@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets"
+
+import qrcodeImage from "@/assets/images/qrcode_for_weixin.jpg"
+import weiboFill from "@/assets/icons/weibo-fill.svg"
+import wechatFill from "@/assets/icons/wechat-fill.svg"
+import mailFill from "@/assets/icons/mail-fill.svg"
+---
+
+<div class="contact_us">
+  <Image src={qrcodeImage} alt="qr code" style="height:auto" />
+  <div class="contact_text">
+    <p>如果您发现任何错误，请通过以下方式向我们反馈。</p>
+    <p class="flex_center">
+      <Image src={weiboFill} alt="微博" />
+      <span style="margin-left:1em;">
+        微博：<a href="https://weibo.com/mineraltown" target="_blank">@矿石镇</a>
+      </span>
+    </p>
+    <p class="flex_center">
+      <Image src={wechatFill} alt="微信公众号：矿石镇" />
+      <span style="margin-left:1em;">微信公众号：矿石镇</span>
+    </p>
+    <p class="flex_center">
+      <Image src={mailFill} alt="邮箱" />
+      <span style="margin-left:1em;">邮箱：friends@mineraltown.net</span>
+    </p>
+  </div>
+</div>
+
+<style>
+  a {
+    color: #555555;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+  }
+
+  a:hover {
+    color: #198d44;
+  }
+
+  .flex_center {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: 801px) {
+    .contact_us {
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .contact_us img {
+      width: 150px;
+    }
+
+    .contact_text {
+      margin-left: 2em;
+    }
+
+    .flex_center {
+      padding: 0;
+      margin: 0;
+    }
+
+    .flex_center img {
+      width: 24px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .card img {
+      width: 8em;
+    }
+
+    .contact_us {
+      margin-top: 1em;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-left: 2em;
+    }
+
+    .contact_us img {
+      width: 120px;
+    }
+
+    .contact_text {
+      margin-top: 1em;
+    }
+
+    .flex_center {
+      padding: 0;
+      margin: 0;
+    }
+
+    .flex_center img {
+      width: 24px;
+    }
+  }
+</style>

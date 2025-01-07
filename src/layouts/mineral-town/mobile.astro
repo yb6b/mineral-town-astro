@@ -1,0 +1,40 @@
+---
+import Layout from "./main.astro"
+import "@/styles/navigation.css"
+import type { MobileLinkPageData } from "../types"
+
+interface Props {
+  data: MobileLinkPageData[]
+  title?: string
+}
+const { data, title } = Astro.props
+---
+
+<Layout title={title || data[0].name}>
+  <div class="mobile">
+    {
+      data.map((item) => (
+        <Fragment>
+          <div class="sub_link">{item.name}</div>
+          {item.flex ? (
+            <div class="sub_flex">
+              {item.items.map((sub) => (
+                <a href={sub.href} class="link_flex">
+                  <div style={sub.style}>{sub.name}</div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <Fragment>
+              {item.items.map((sub) => (
+                <a href={sub.href} class="link">
+                  <div style={sub.style}>{sub.name}</div>
+                </a>
+              ))}
+            </Fragment>
+          )}
+        </Fragment>
+      ))
+    }
+  </div>
+</Layout>

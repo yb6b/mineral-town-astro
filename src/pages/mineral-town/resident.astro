@@ -1,0 +1,104 @@
+---
+import Layout from "@/layouts/mineral-town/mobile.astro"
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const styleGirl = "color: #f04e4d;"
+const styleBoy = "color: #1b75bc;"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "居民相关",
+    items: [
+      {
+        name: "好感度",
+        href: "event/favorability",
+        style: "border: none;",
+      },
+    ],
+  },
+  {
+    name: "花嫁候补（女）",
+    flex: true,
+    items: [
+      { name: "珀布利", href: "resident/pobuli", style: styleGirl },
+      { name: "艾丽", href: "resident/aili", style: styleGirl },
+      { name: "琳", href: "resident/lin", style: styleGirl },
+      { name: "卡莲", href: "resident/kalian", style: styleGirl },
+      { name: "玛丽", href: "resident/mary", style: styleGirl },
+    ],
+  },
+  {
+    name: "花嫁候补（男）",
+    flex: true,
+    items: [
+      { name: "克里夫", href: "resident/kelifu", style: styleBoy },
+      { name: "多特", href: "resident/doctor", style: styleBoy },
+      { name: "格雷", href: "resident/gelei", style: styleBoy },
+      { name: "里克", href: "resident/like", style: styleBoy },
+      { name: "凯伊", href: "resident/kai", style: styleBoy },
+    ],
+  },
+  {
+    name: "普通居民",
+    flex: true,
+    items: [
+      { name: "安娜", href: "resident/ana" },
+      { name: "穆奇", href: "resident/muqi" },
+      { name: "卡特", href: "resident/kate" },
+      { name: "艾莲", href: "resident/ailian" },
+      { name: "哥茨", href: "resident/gezi" },
+      { name: "哈里斯", href: "resident/halisi" },
+      { name: "杰夫", href: "resident/jiefu" },
+      { name: "莉莉雅", href: "resident/liliya" },
+      { name: "玛娜", href: "resident/mana" },
+      { name: "梅", href: "resident/mei" },
+      { name: "达特", href: "resident/date" },
+      { name: "巴基尔", href: "resident/bajier" },
+      { name: "塞巴拉", href: "resident/saibala" },
+      { name: "沙夏", href: "resident/shaxia" },
+      { name: "优", href: "resident/you" },
+      { name: "托马斯", href: "resident/thomas" },
+      { name: "霍安", href: "resident/huoan" },
+      { name: "扎克", href: "resident/zhake" },
+      { name: "笛克", href: "resident/dike" },
+    ],
+  },
+  {
+    name: "七个小矮人",
+    flex: true,
+    items: [
+      { name: "阿克亚", href: "resident/akeya", style: "color:#6ccfe4" },
+      { name: "古里笛", href: "resident/gulidi", style: "color:#ffdc35" },
+      { name: "歇夫年", href: "resident/xiefunian", style: "color:#e10015" },
+      { name: "卓卡克", href: "resident/zhuokake", style: "color:#334097" },
+      { name: "迪米特", href: "resident/dimite", style: "color:#70ac1a" },
+      { name: "纳皮", href: "resident/napi", style: "color:#eb7b00" },
+      { name: "波尔多", href: "resident/boerduo", style: "color:#aa4790" },
+    ],
+  },
+  {
+    name: "特殊人物",
+    flex: true,
+    items: [
+      { name: "格尔曼", href: "resident/geerman" },
+      { name: "河童", href: "resident/hetong" },
+      { name: "女神", href: "resident/goddess" },
+      { name: "宝宝", href: "resident/baby" },
+      { name: "班", href: "resident/ban" },
+      { name: "露", href: "resident/lu" },
+    ],
+  },
+  {
+    name: "未登场人物",
+    flex: true,
+    items: [
+      { name: "罗德", href: "resident/luode" },
+      { name: "阿佐", href: "resident/azuo" },
+      { name: "古乐古", href: "resident/gulegu" },
+      { name: "佐安", href: "resident/zuoa" },
+    ],
+  },
+]
+---
+
+<Layout {data} title="村民介绍" />

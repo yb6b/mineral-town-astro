@@ -1,0 +1,161 @@
+---
+import Layout from "@/layouts/mineral-town/mobile.astro"
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "自己的牧场",
+    flex: true,
+    items: [
+      {
+        name: "牧场",
+        href: "place/my",
+      },
+      {
+        name: "自家",
+        href: "place/home",
+      },
+      {
+        name: "动物小屋",
+        href: "place/animal-hut",
+      },
+      {
+        name: "鸡小屋",
+        href: "place/chicken-hut",
+      },
+      {
+        name: "马小屋",
+        href: "place/horse-hut",
+      },
+    ],
+  },
+  {
+    name: "小镇",
+    flex: true,
+    items: [
+      {
+        name: "小镇",
+        href: "place/town",
+      },
+      {
+        name: "养鸡场",
+        href: "place/chicken-farm",
+      },
+      {
+        name: "锻冶屋",
+        href: "place/forging",
+      },
+      {
+        name: "尤德尔牧场",
+        href: "place/yudel",
+      },
+      {
+        name: "玫瑰广场",
+        href: "place/square",
+      },
+      {
+        name: "小矮人的家",
+        href: "place/elf",
+      },
+      {
+        name: "教堂",
+        href: "place/church",
+      },
+      {
+        name: "医院",
+        href: "place/hospital",
+      },
+      {
+        name: "杂货店",
+        href: "place/grocery-house",
+      },
+      {
+        name: "宿屋",
+        href: "place/hostel",
+      },
+      {
+        name: "镇长的家",
+        href: "place/mayor",
+      },
+      {
+        name: "爱莲的家",
+        href: "place/ailian",
+      },
+      {
+        name: "果树园",
+        href: "place/orchard",
+      },
+      {
+        name: "图书馆",
+        href: "place/library",
+      },
+      {
+        name: "巴基尔家",
+        href: "place/barkell",
+      },
+      {
+        name: "村之别墅",
+        href: "place/village-villa",
+      },
+    ],
+  },
+  {
+    name: "海滨",
+    flex: true,
+    items: [
+      {
+        name: "海滨",
+        href: "place/seaside",
+      },
+      {
+        name: "海之家",
+        href: "place/sea-house",
+      },
+      {
+        name: "扎克家",
+        href: "place/zach",
+      },
+      {
+        name: "海边别墅",
+        href: "place/seaside-villa",
+      },
+    ],
+  },
+  {
+    name: "后山",
+    flex: true,
+    items: [
+      {
+        name: "后山",
+        href: "place/mountain",
+      },
+      {
+        name: "女神之泉",
+        href: "place/fountain",
+      },
+      {
+        name: "泉边矿石场",
+        href: "place/springside-ore-field",
+      },
+      {
+        name: "湖心矿石场",
+        href: "place/lake-ore-field",
+      },
+      {
+        name: "温泉",
+        href: "place/spa",
+      },
+      {
+        name: "樵夫的家",
+        href: "place/woodcutter",
+      },
+      {
+        name: "山之别墅",
+        href: "place/mountain-villa",
+      },
+    ],
+  },
+]
+---
+
+<Layout {data} title="场所介绍" />

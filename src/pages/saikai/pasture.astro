@@ -1,0 +1,10 @@
+---
+import Layout from "@/layouts/saikai/mobile.astro"
+import { aside } from "@/layouts/saikai/menu"
+
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [aside.find((i) => i.name === "牧场生活")!]
+---
+
+<Layout {data} />

@@ -1,0 +1,130 @@
+---
+import MineralTown from "@/layouts/mineral-town/main.astro"
+import { Image } from "astro:assets"
+
+import ContactUs from "@/components/contact-us.astro"
+
+import mineralForGirlImage from "./_soft_big_mineral_for_girl.png"
+import mineralImage from "./_soft_big_mineral.png"
+---
+
+<MineralTown>
+  <h1 style="padding-top: 2em;">欢迎来到矿石镇！</h1>
+  <div class="card">
+    <div class="card_cassette">
+      <Image src={mineralImage} alt="牧场物语 矿石镇的伙伴们" class="cassette" />
+      <div class="card_text">
+        <h3>牧场物语 矿石镇的伙伴们</h3>
+        <p>发售日期：2003/4/18</p>
+        <p>对应机器：GBA</p>
+        <p>
+          <a href="http://www.bokumono.com/series/harvest/" target="_blank"
+            >牧場物語 ～ミネラルタウンのなかまたち</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="card_cassette">
+      <Image src={mineralForGirlImage} alt="牧场物语 矿石镇的伙伴们 女孩版" class="cassette" />
+      <div class="card_text">
+        <h3>牧场物语 矿石镇的伙伴们 女孩版</h3>
+        <p>发售日期：2003/12/12</p>
+        <p>对应机器：GBA</p>
+        <p>
+          <a href="http://www.bokumono.com/series/cube_gba_girl/gba/" target="_blank"
+            >牧場物語 ～ミネラルタウンのなかまたち for ガール</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="note">
+    <p>牧场物语史上最经典的作品，亦是童年的回忆。</p>
+  </div>
+  <br />
+  <ContactUs />
+</MineralTown>
+
+<style>
+  h1 {
+    color: #555;
+  }
+
+  a {
+    color: #555555;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+  }
+
+  a:hover {
+    color: #198d44;
+  }
+
+  .note {
+    width: auto;
+    padding: 1em 2em 1em 2em;
+    line-height: 1.7em;
+  }
+
+  @media only screen and (min-width: 801px) {
+    .note {
+      background-color: #ddd;
+    }
+
+    .card {
+      width: 900px;
+      height: auto;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .card_text {
+      margin: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    body {
+      font-size: 0.8em;
+      padding-bottom: 2em;
+    }
+
+    .note {
+      background-color: #ccc;
+    }
+
+    .card {
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card_cassette {
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .cassette {
+      width: 40%;
+      height: 40%;
+      padding-left: 2em;
+    }
+
+    .card_text {
+      line-height: 1em;
+      margin: 2em;
+    }
+  }
+</style>

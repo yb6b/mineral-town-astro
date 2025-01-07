@@ -1,0 +1,89 @@
+---
+import Layout from "@/layouts/saikai/mobile.astro"
+
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const styleGirl = "color: #f04e4d;"
+const styleBoy = "color: #1b75bc;"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "居民相关",
+    flex: false,
+    items: [
+      { name: "居民交流", href: "life/communicate" },
+      { name: "恋爱结婚", href: "life/love" },
+    ],
+  },
+  {
+    name: "花嫁候补",
+    flex: true,
+    items: [
+      { name: "珀布莉", href: "resident/girl/popuri", style: styleGirl },
+      { name: "玛丽", href: "resident/girl/marie", style: styleGirl },
+      { name: "卡莲", href: "resident/girl/karen", style: styleGirl },
+      { name: "艾丽", href: "resident/girl/ellie", style: styleGirl },
+      { name: "兰", href: "resident/girl/ran", style: styleGirl },
+      { name: "珍妮弗", href: "resident/girl/jennifer", style: styleGirl },
+      { name: "女神大人", href: "resident/girl/megami", style: styleGirl },
+    ],
+  },
+  {
+    name: "花婿候补",
+    flex: true,
+    items: [
+      { name: "里克", href: "resident/boy/rikku", style: styleBoy },
+      { name: "格雷", href: "resident/boy/gray", style: styleBoy },
+      { name: "多特", href: "resident/boy/doctor", style: styleBoy },
+      { name: "克里夫", href: "resident/boy/kurifu", style: styleBoy },
+      { name: "凯", href: "resident/boy/kai", style: styleBoy },
+      { name: "布兰登", href: "resident/boy/brandon", style: styleBoy },
+      { name: "霍安", href: "resident/boy/hoan", style: styleBoy },
+      { name: "美食家", href: "resident/boy/gourmetman", style: styleBoy },
+      { name: "河童", href: "resident/boy/kappa", style: styleBoy },
+    ],
+  },
+  {
+    name: "普通居民",
+    flex: true,
+    items: [
+      { name: "莉莉娅", href: "resident/ordinary/riria" },
+      { name: "穆奇", href: "resident/ordinary/mugi" },
+      { name: "梅", href: "resident/ordinary/mei" },
+      { name: "赛巴拉", href: "resident/ordinary/saibara" },
+      { name: "狄克", href: "resident/ordinary/duke" },
+      { name: "玛娜", href: "resident/ordinary/mana" },
+      { name: "巴吉尔", href: "resident/ordinary/basil" },
+      { name: "安娜", href: "resident/ordinary/anna" },
+      { name: "托马斯", href: "resident/ordinary/tomas" },
+      { name: "哈里斯", href: "resident/ordinary/haris" },
+      { name: "爱莲", href: "resident/ordinary/ellen" },
+      { name: "优", href: "resident/ordinary/yuu" },
+      { name: "杰夫", href: "resident/ordinary/jefu" },
+      { name: "莎夏", href: "resident/ordinary/sasha" },
+      { name: "卡特", href: "resident/ordinary/kata" },
+      { name: "达特", href: "resident/ordinary/dadd" },
+      { name: "哥兹", href: "resident/ordinary/gods" },
+      { name: "札克", href: "resident/ordinary/zaku" },
+      { name: "班", href: "resident/ordinary/ban" },
+      { name: "露", href: "resident/ordinary/loo" },
+      { name: "主人公的孩子", href: "resident/ordinary/children" },
+    ],
+  },
+  {
+    name: "七个小矮人",
+    flex: true,
+    items: [
+      { name: "卓卡克", href: "resident/ordinary/koro#chokkaku", style: "color: #334097" },
+      { name: "纳比", href: "resident/ordinary/koro#nappi", style: "color: #eb7b00" },
+      { name: "波尔多", href: "resident/ordinary/koro#borudo", style: "color: #aa4790" },
+      { name: "谢夫涅", href: "resident/ordinary/koro#shefunenn", style: "color: #e10015" },
+      { name: "阿库娅", href: "resident/ordinary/koro#aqua", style: "color: #6ccfe4" },
+      { name: "古里迪", href: "resident/ordinary/koro#greedy", style: "color: #ffdc35" },
+      { name: "迪米特", href: "resident/ordinary/koro#timeet", style: "color: #70ac1a" },
+    ],
+  },
+]
+---
+
+<Layout {data} title="居民" />

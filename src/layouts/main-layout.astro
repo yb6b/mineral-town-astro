@@ -1,0 +1,58 @@
+---
+import BaseLayout from "./base-layout.astro"
+import cssPath from "@/styles/main.css?url"
+import mCssPath from "@/styles/main_m.css?url"
+import MainMenu from "@/components/main-menu.astro"
+
+import bilibiliFill from "@/assets/icons/bilibili-fill.svg"
+import weiboFill from "@/assets/icons/weibo-fill.svg"
+import wechatFill from "@/assets/icons/wechat-fill.svg"
+import mailFill from "@/assets/icons/mail-fill.svg"
+import qrcodeImage from "@/assets/images/qrcode_for_weixin.jpg"
+import { Image } from "astro:assets"
+const thisYear = new Date().getFullYear()
+import logo from "@/assets/icons/logo.svg"
+---
+
+<BaseLayout {cssPath} {mCssPath}>
+  <div id="app">
+    <div class="head">
+      <Image class="logo" src={logo} alt="logo" />
+      <p class="slogan">将荒芜的庄园变成繁盛的牧场，是我的梦想！</p>
+    </div>
+    <MainMenu />
+    <slot />
+    <div class="info">
+      <div class="info_box">
+        <div class="about_us">
+          <Image src={qrcodeImage} alt="QR code" class="qrcode" />
+          <div class="info_text">
+            <div class="flex_center">
+              <Image src={bilibiliFill} alt="哔哩哔哩" />
+              <div class="platform_name">Ｂ　站</div>
+              <a href="https://space.bilibili.com/4516259/" target="_blank"> 勤劳的牧场主 </a>
+            </div>
+            <div class="flex_center">
+              <Image src={weiboFill} alt="微博" />
+              <div class="platform_name">微　博</div>
+              <a href="https://weibo.com/mineraltown" target="_blank">@矿石镇</a>
+            </div>
+            <div class="flex_center">
+              <Image src={wechatFill} alt="公众号" />
+              <div class="platform_name">公众号</div>
+              矿石镇
+            </div>
+            <div class="flex_center">
+              <Image src={mailFill} alt="邮箱" />
+              <div class="platform_name">邮　箱</div>
+              friends@mineraltown.net
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <div class="flex_center">矿石镇的攻略百科 © {thisYear}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

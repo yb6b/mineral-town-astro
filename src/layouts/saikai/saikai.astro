@@ -1,0 +1,29 @@
+---
+import WikiLayout from "../wiki-layout.astro"
+
+import { getMobileFooterArray } from "../mobile-footer"
+
+import { addPrefixToHref } from "../types"
+import { aside } from "./menu"
+
+interface Props {
+  title?: string
+  isArticle?: boolean
+}
+const { title, isArticle } = Astro.props
+
+addPrefixToHref(aside, "/saikai/")
+
+const footer = getMobileFooterArray("saikai")
+---
+
+<WikiLayout
+  name="矿石镇的攻略百科"
+  slogan="我们聚在一起的理由，就这么简单。"
+  {aside}
+  {footer}
+  title={title ? title + " · 重聚矿石镇" : undefined}
+  {isArticle}
+>
+  <slot />
+</WikiLayout>

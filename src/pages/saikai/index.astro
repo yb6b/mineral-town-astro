@@ -1,0 +1,146 @@
+---
+import SaikaiLayout from "@/layouts/saikai/saikai.astro"
+import { Image } from "astro:assets"
+
+import ContactUs from "@/components/contact-us.astro"
+import banner from "./_soft_big_saikai.png"
+---
+
+<SaikaiLayout>
+  <h1>欢迎回到矿石镇！</h1>
+  <div class="card">
+    <Image src={banner} alt="牧场物语 重聚矿石镇" class="cassette" />
+    <div class="card_text">
+      <h3>牧场物语 重聚矿石镇</h3>
+      <p>发售日期：2019/10/17</p>
+      <p>
+        对应平台：
+        <ul>
+          <li>
+            <a href="https://www.bokumono.com/series/saikai/" target="_blank">Nintendo Switch™</a>
+          </li>
+          <li>
+            <a href="https://www.bokumono.com/series/saikai/ps4/" target="_blank">PlayStation®4</a>
+          </li>
+          <li>
+            <a
+              href="https://www.xbox.com/zh-hk/games/store/牧場物語-再会のミネラルタウン-デジタル版/9P3RG7BTFGBS"
+              target="_blank">Xbox One</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.microsoft.com/zh-cn/p/story-of-seasons-friends-of-mineral-town-windows-edition/9pftzb8p357j"
+              target="_blank">Windows</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://store.steampowered.com/app/978780/STORY_OF_SEASONS_Friends_of_Mineral_Town/"
+              target="_blank">Steam</a
+            >
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div class="note">
+    <p>
+      GBA游戏《牧场物语 矿石镇伙伴们》于2003年发行。<br />
+      时隔16年，Marvelous推出了牧场物语系列的第31作《牧场物语 重聚矿石镇》，是对经典版本矿石镇的复刻。<br
+      />
+      本作作为复刻版本，在玩法和游戏结构上保留极高的还原度基础上，对细节和操作性上进行了一定的优化。<br
+      />
+      此外新版在原作基础上加入一些新的内容，如两名新的结婚候补、同性结婚（知己之仪）、宠物系统、陷阱系统，增加不少趣味性，同时原作换季bug作为彩蛋也保留了下来。<br
+      />
+      无论是童年追忆还是萌新入坑，都不失为一部合格的复刻作品。<br />
+      希望大家能在喧嚣的当下，重聚矿石镇，重拾简单而又快乐的生活，寻找到一些永远不会忘记的东西。
+    </p>
+  </div>
+  <br />
+  <ContactUs />
+</SaikaiLayout>
+<style>
+  h1 {
+    color: #555;
+  }
+
+  a {
+    color: #555555;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+  }
+
+  a:hover {
+    color: #198d44;
+  }
+
+  .note {
+    width: auto;
+    padding: 1em 2em 1em 2em;
+    line-height: 1.7em;
+  }
+
+  @media only screen and (min-width: 801px) {
+    .note {
+      background-color: #ddd;
+    }
+
+    .card {
+      width: 900px;
+      height: auto;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .card_text {
+      margin: 30px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    body {
+      font-size: 0.8em;
+      padding-bottom: 2em;
+    }
+
+    .note {
+      background-color: #ccc;
+    }
+
+    .card {
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card_cassette {
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .cassette {
+      width: 40%;
+      height: 40%;
+      padding-left: 2em;
+    }
+
+    .card_text {
+      line-height: 1em;
+      margin: 2em;
+    }
+  }
+</style>

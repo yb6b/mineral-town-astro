@@ -1,0 +1,14 @@
+---
+import Layout from "./main.astro"
+import type { MarkdownLayoutProps } from "astro"
+
+type Props = MarkdownLayoutProps<{
+  title?: string
+}>
+
+const { frontmatter, headings } = Astro.props
+
+const realTitle = frontmatter?.title || headings?.find((h) => h.depth === 1)?.text || undefined
+---
+
+<Layout isArticle title={realTitle}> <slot /></Layout>

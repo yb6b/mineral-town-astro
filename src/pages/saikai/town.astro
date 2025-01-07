@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/saikai/mobile.astro"
+import { aside } from "@/layouts/saikai/menu"
+
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [
+  aside.find((i) => i.name === "重聚矿石镇")!,
+  aside.find((i) => i.name === "村庄居民")!,
+]
+---
+
+<Layout {data} title="村庄" />

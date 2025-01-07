@@ -1,0 +1,8 @@
+---
+import Layout from "@/layouts/saikai/saikai.astro"
+import Calendar from "./_calendar.vue"
+---
+
+<Layout isArticle>
+  <Calendar client:only="vue" />
+</Layout>

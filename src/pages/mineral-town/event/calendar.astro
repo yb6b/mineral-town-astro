@@ -1,0 +1,447 @@
+---
+import Layout from "@/layouts/mineral-town/main.astro"
+import iconStar from "@icons/star.svg"
+import iconCake from "@icons/cake-2-fill.svg"
+import iconCakeRed from "@icons/cake-2-fill-red.svg"
+import iconCakeBlue from "@icons/cake-2-fill-blue.svg"
+
+import { Image } from "astro:assets"
+
+interface CalendarDayItem {
+  event?: string[]
+  cake?: string[]
+  cakeRed?: string[]
+  cakeBlue?: string[]
+  star?: string[]
+  isEmpty?: boolean
+}
+
+type CalendarData = {
+  season: string
+  days: CalendarDayItem[]
+}[]
+
+const data: CalendarData = [
+  {
+    season: "春季",
+    days: [
+      { star: ["年糕大会"], event: ["女神猜数字"] },
+      { event: ["女神猜数字"] },
+      { event: ["女神猜数字"] },
+      { cake: ["波尔多"], event: ["女神猜数字"] },
+      { event: ["女神猜数字"] },
+      {},
+      {},
+      { cake: ["女神", "河童"] },
+      { cake: ["女神※", "河童※"] },
+      {},
+      { cake: ["塞巴拉"] },
+      {},
+      {},
+      { star: ["春季感恩节"] },
+      { cake: ["卓卡克"] },
+      { cakeRed: ["艾丽"] },
+      { cake: ["穆奇"] },
+      { star: ["春季赛马"] },
+      { cake: ["莉莉雅"] },
+      { cakeRed: ["艾丽※"] },
+      { cake: ["美食家"] },
+      { star: ["料理祭"] },
+      {},
+      {},
+      {},
+      { cake: ["阿克亚"] },
+      {},
+      {},
+      {},
+      { cake: ["沙夏"] },
+    ],
+  },
+  {
+    season: "夏季",
+    days: [
+      { star: ["入海祭"] },
+      {},
+      { cakeRed: ["珀布利"] },
+      { cake: ["哈里斯"] },
+      {},
+      { cakeBlue: ["克里夫"] },
+      { star: ["鸡祭"] },
+      {},
+      {},
+      {
+        cakeRed: ["珀布利※"],
+        cakeBlue: ["克里夫※"],
+      },
+      { cake: ["巴基尔"] },
+      {},
+      {},
+      {},
+      {},
+      { cake: ["迪米特"] },
+      {
+        cakeRed: ["琳"],
+        cakeBlue: ["凯※"],
+      },
+      {},
+      {},
+      { star: ["牛祭"] },
+      {},
+      {
+        cakeRed: ["琳※"],
+        cakeBlue: ["凯"],
+      },
+      {},
+      { star: ["烟花大会"] },
+      { cake: ["托马斯"] },
+      {},
+      {},
+      {},
+      { cake: ["扎克"] },
+      {},
+    ],
+  },
+  {
+    season: "秋季",
+    days: [
+      {},
+      {
+        "cake": ["哥茨"],
+      },
+      {
+        "star": ["音乐节"],
+      },
+      {},
+      {
+        "cake": ["优"],
+        "event": ["琳母亲的忌日"],
+      },
+      {},
+      {},
+      {},
+      {
+        "star": ["收获祭"],
+      },
+      {
+        "cake": ["古里笛"],
+        "star": ["流星 ※"],
+      },
+      {
+        "cake": ["玛娜"],
+      },
+      {},
+      {
+        "star": ["赏月"],
+      },
+      {
+        "cake": ["歇夫年"],
+      },
+      { "cakeRed": ["卡莲"] },
+      {},
+      {},
+      { "star": ["秋季赛马"] },
+      { "cakeBlue": ["多特"] },
+      { "cake": ["卡特"] },
+      { "star": ["羊祭"] },
+      {},
+      { "cakeBlue": ["里克※"], "cakeRed": ["卡莲※"], "event": ["安娜"] },
+      {},
+      { "cakeBlue": ["多特※"] },
+      {},
+      { "cakeBlue": ["里克"] },
+      {},
+      {},
+      { "star": ["南瓜祭"] },
+    ],
+  },
+  {
+    season: "冬季",
+    days: [
+      {},
+      {
+        "event": ["镇长的请求"],
+      },
+      {},
+      {},
+      {},
+      {
+        "cakeBlue": ["格雷"],
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "cake": ["达特"],
+      },
+      {},
+      {
+        "cake": ["艾莲"],
+      },
+      {
+        "star": ["冬之感谢祭"],
+      },
+      {
+        "cake": ["笛克"],
+      },
+      {},
+      {},
+      {},
+      {
+        "cake": ["霍安"],
+      },
+      {
+        "cakeRed": ["玛丽"],
+      },
+      {
+        "cake": ["霍安※"],
+      },
+      {
+        "cake": ["纳皮"],
+      },
+      {
+        "cakeRed": ["玛丽※"],
+        "cakeBlue": ["格雷※"],
+      },
+      {
+        "star": ["星夜祭"],
+      },
+      {},
+      {
+        "cake": ["梅"],
+      },
+      {},
+      {},
+      {
+        "cake": ["杰夫"],
+      },
+      {
+        "star": ["新年荞麦面", "跨年夜"],
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+    ],
+  },
+]
+
+function splitArray7<T>(arr: T[]): T[][] {
+  const result = []
+  for (let i = 0; i < arr.length; i += 7) {
+    result.push(arr.slice(i, i + 7))
+  }
+  return result
+}
+
+function fillArray(arr: CalendarDayItem[]) {
+  const len = arr.length
+  for (let i = 0; i < 5 * 7 - len; i++) {
+    arr.push({ isEmpty: true })
+  }
+  return arr
+}
+
+function formatDate(weekIndex: number, dayIndex: number) {
+  const day = weekIndex * 7 + dayIndex + 1
+  return day >= 10 ? day.toString() : "0" + day
+}
+---
+
+<Layout isArticle title="年度日历">
+  <h1>日历事件</h1>
+  <p>此页面显示了矿石镇的日历</p>
+  <h2>日期</h2>
+  <ul>
+    <li>日曜日——星期日</li>
+    <li>月曜日——星期一</li>
+    <li>火曜日——星期二</li>
+    <li>水曜日——星期三</li>
+    <li>木曜日——星期四</li>
+    <li>金曜日——星期五</li>
+    <li>土曜日——星期六</li>
+  </ul>
+  <h2>日历</h2>
+  <div id="calendar">
+    {
+      data.map((month) => (
+        <table>
+          <thead>
+            <tr>
+              <th colspan="7">{month.season}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {splitArray7(fillArray(month.days)).map((days, weekIndex) => (
+              <tr>
+                {days.map((day, index) => (
+                  <td>
+                    <div class="calendar">
+                      {day.isEmpty ? null : (
+                        <Fragment>
+                          <div class="calendar_top">{formatDate(weekIndex, index)}</div>
+                          <div class="calendar_bottom">
+                            {day.star &&
+                              day.star.map((person) => (
+                                <span class="days_birthday">
+                                  <Image src={iconStar} alt="star" />
+                                  <span>{person}</span>
+                                </span>
+                              ))}
+                            {day.cake &&
+                              day.cake.map((person) => (
+                                <span class="days_birthday">
+                                  <Image src={iconCake} alt="cake" />
+                                  <span>{person}</span>
+                                </span>
+                              ))}
+                            {day.cakeRed &&
+                              day.cakeRed.map((person) => (
+                                <span class="days_birthday">
+                                  <Image src={iconCakeRed} alt="cake red" />
+                                  <span class="girl">{person}</span>
+                                </span>
+                              ))}
+                            {day.cakeBlue &&
+                              day.cakeBlue.map((person) => (
+                                <span class="days_birthday">
+                                  <Image src={iconCakeBlue} alt="cake blue" />
+                                  <span class="boy">{person}</span>
+                                </span>
+                              ))}
+                            {day.event &&
+                              day.event.map((person) => (
+                                <span class="days_birthday">{person}</span>
+                              ))}
+                          </div>
+                        </Fragment>
+                      )}
+                    </div>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ))
+    }
+    <p>※ 事件「流星」从第5年起，每5年发生一次。</p>
+  </div>
+</Layout>
+
+<style>
+  #calendar {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  table {
+    margin-top: 20px;
+    max-width: 1000px;
+  }
+
+  td {
+    width: 14%;
+    padding: 0;
+    line-height: 1.7em;
+    text-align: center;
+  }
+
+  .boy {
+    color: #2f81c2;
+    margin-left: 0.5em;
+  }
+
+  .girl {
+    color: #d93b4b;
+    margin-left: 0.5em;
+  }
+
+  .event {
+    color: #555;
+    margin-left: 0.5em;
+  }
+
+  @media only screen and (min-width: 801px) {
+    .calendar {
+      width: 100%;
+      height: 100%;
+      min-height: 110px;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .calendar_top {
+      width: 80%;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .calendar_bottom {
+      width: 100%;
+      margin-bottom: 10px;
+      flex-grow: 1;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .days_birthday {
+      width: 80%;
+      font-size: 0.9em;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .calendar {
+      width: 100%;
+      height: 100%;
+      min-height: 50px;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .calendar_top {
+      width: 100%;
+    }
+
+    .calendar_bottom {
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .days_birthday {
+      width: auto;
+      font-size: 0.8em;
+      display: flex;
+      display: -webkit-flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+</style>

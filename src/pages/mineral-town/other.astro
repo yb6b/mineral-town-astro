@@ -1,0 +1,61 @@
+---
+import Layout from "@/layouts/mineral-town/mobile.astro"
+import type { MobileLinkPageData } from "@/layouts/types"
+
+const data: MobileLinkPageData[] = [
+  {
+    name: "道具说明",
+    flex: true,
+    items: [
+      { name: "农作", href: "life/farm/prop" },
+      { name: "动物", href: "life/pasture/prop" },
+      { name: "山货", href: "life/farm/mountain" },
+      { name: "戒指", href: "life/other/ring" },
+      { name: "电话购物", href: "life/other/phone" },
+      { name: "其他道具", href: "life/other/other" },
+      { name: "女神秘宝", href: "life/other/goddess" },
+      { name: "河童秘宝", href: "life/other/kappa" },
+      { name: "真实秘宝", href: "life/other/real" },
+      { name: "力之果实", href: "life/other/power" },
+      { name: "不可思议的果实", href: "life/other/incredible" },
+      { name: "首饰与化妆品", href: "life/other/jewelry" },
+      { name: "班最喜欢的东西", href: "life/other/ban_like" },
+    ],
+  },
+  {
+    name: "其他资料",
+    items: [
+      {
+        name: "女神猜数字游戏",
+        href: "event/guess-number",
+      },
+      {
+        name: "霍安猜苹果",
+        href: "event/girl-version#猜苹果",
+      },
+      {
+        name: "小矮人游戏",
+        href: "place/game",
+      },
+      {
+        name: "联机",
+        href: "other/online",
+      },
+      {
+        name: "换季BUG",
+        href: "other/season-bug",
+      },
+      {
+        name: "无限体力BUG",
+        href: "other/physical-bug",
+      },
+      {
+        name: "金手指",
+        href: "other/cheat-code",
+      },
+    ],
+  },
+]
+---
+
+<Layout title="其他" {data} />
