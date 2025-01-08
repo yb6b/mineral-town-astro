@@ -23,5 +23,5 @@ layout: "@/layouts/mineral-town/article.astro"
 - [宿屋](../place/hostel)
 - [玫瑰广场](../place/square)
 
-![矿石镇1](_shang.png)
-![矿石镇2](_xia.png)
+![矿石镇1](_Shang.png)
+![矿石镇2](_Xia.png)

@@ -4,9 +4,9 @@ layout: "@/layouts/mineral-town/article.astro"
 
 # 自家
 
-![jia1](_jia01.png)
+![jia1](_Jia01.png)
 
-![jia2](_jia.png)
+![jia2](_Jia.png)
 
 主人公居住的地方，可以通过增筑变大。
 

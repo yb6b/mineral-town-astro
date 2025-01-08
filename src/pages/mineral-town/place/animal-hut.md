@@ -4,9 +4,9 @@ layout: "@/layouts/mineral-town/article.astro"
 
 # 动物小屋
 
-![dwxw1](_nyxw01.png)
+![dwxw1](_Nyxw01.png)
 
-![dwxw2](_nyxw.png)
+![dwxw2](_Nyxw.png)
 
 用来养牛和羊，可以增筑。
 

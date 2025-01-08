@@ -26,4 +26,4 @@ layout: "@/layouts/mineral-town/article.astro"
 
 ## 牧场地图
 
-![牧场地图](_home.png)
+![牧场地图](_Home.png)

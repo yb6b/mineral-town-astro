@@ -4,9 +4,9 @@ layout: "@/layouts/mineral-town/article.astro"
 
 # 鸡小屋
 
-![完全增筑后的鸡小屋1](_chicken-1.png)
+![完全增筑后的鸡小屋1](_Chicken-1.png)
 
-![完全增筑后的鸡小屋2](_chicken.png)
+![完全增筑后的鸡小屋2](_Chicken.png)
 
 用来养鸡，可以增筑。
 

@@ -4,7 +4,7 @@ layout: "@/layouts/mineral-town/article.astro"
 
 # 宝宝
 
-![BB](_bb.png)
+![BB](_BB.png)
 
 自己的儿子就不需要介绍了吧？
 
